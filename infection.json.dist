@@ -1,0 +1,17 @@
+{
+  "timeout": 10,
+  "source": {
+    "directories": [
+      "src/Platform/Application",
+      "src/Component"
+    ]
+  },
+  "logs": {
+    "text": "var/logs/infection.log"
+  },
+  "mutators": {
+    "@default": true
+  },
+  "testFramework":"phpunit",
+  "bootstrap":"./tests/bootstrap.php"
+}
