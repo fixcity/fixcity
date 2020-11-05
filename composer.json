@@ -1,0 +1,71 @@
+{
+  "name": "fixcity/fixcity",
+  "description": "Map-based reporting platform",
+  "minimum-stability": "stable",
+  "license": "proprietary",
+  "authors": [
+    {
+      "name": "FixCity",
+      "email": "fixcity.org@gmail.com"
+    }
+  ],
+  "require": {
+    "php": "^7.4",
+    "ext-json": "*",
+    "ext-pdo": "*",
+    "beberlei/assert": "^3.2",
+    "doctrine/dbal": "^2.9",
+    "ramsey/uuid": "^3.9"
+  },
+  "require-dev": {
+    "edgedesign/phpqa": "^1.23",
+    "infection/infection": "^0.17",
+    "ergebnis/phpstan-rules": "^0.15",
+    "friendsofphp/php-cs-fixer": "^v2.16",
+    "globtec/phpadr": "^1.0",
+    "pds/skeleton": "^1.0.0",
+    "phpstan/phpstan": "^0.12",
+    "phpstan/phpstan-phpunit": "^0.12",
+    "phpunit/phpunit": "^9.4",
+    "rector/rector": "^0.8",
+    "roave/security-advisories": "dev-master",
+    "sensiolabs-de/deptrac-shim": "^0.8",
+    "vimeo/psalm": "^3.17",
+    "php-parallel-lint/php-console-highlighter": "^0.5.0",
+    "php-parallel-lint/php-parallel-lint": "^1.2",
+    "nette/neon": "^3.2"
+  },
+  "autoload": {
+    "psr-4": {
+      "FixCity\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "FixCity\\": "tests/"
+    }
+  },
+  "scripts": {
+    "check:cs": [
+      "php-cs-fixer fix --dry-run --diff"
+    ],
+    "fix:cs": [
+      "php-cs-fixer fix"
+    ],
+    "tests": [
+      "@check:cs",
+      "phpunit",
+      "deptrac",
+      "rector process --dry-run",
+      "phpqa",
+      "psalm"
+    ],
+    "create:adr": [
+      "phpadr make:decision --directory docs/architecture/decisions"
+    ]
+  },
+  "config": {
+    "bin-dir": "bin",
+    "sort-packages": true
+  }
+}

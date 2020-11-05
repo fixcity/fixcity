@@ -1,0 +1,9 @@
+includes:
+    - %currentWorkingDirectory%/vendor/phpstan/phpstan-phpunit/extension.neon
+    - %currentWorkingDirectory%/vendor/phpstan/phpstan-phpunit/rules.neon
+rules:
+    - Ergebnis\PHPStan\Rules\Expressions\NoEvalRule
+parameters:
+    bootstrapFiles: [%currentWorkingDirectory%/vendor/autoload.php]
+    scanFiles:
+        - %currentWorkingDirectory%/tests/bootstrap.php

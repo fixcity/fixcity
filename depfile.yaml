@@ -1,0 +1,17 @@
+paths:
+  - ./src
+exclude_files:
+  - .*test.*
+layers:
+  - name: fixcity_application
+    collectors:
+      - type: directory
+        regex: src/Platform/Application
+  - name: fixcity_infrastructure
+    collectors:
+      - type: directory
+        regex: src/Platform/Infrastructure
+ruleset:
+  fixcity_infrastructure:
+    - fixcity_application
+  fixcity_application: ~

@@ -1,0 +1,33 @@
+phpqa:
+  report: true
+  verbose: true
+  analyzedDirs:
+    - ./
+  buildDir: var/logs/phpqa
+  tools:
+    - phpmetrics
+    - phploc
+    - phpcs
+    - phpmd
+    - pdepend
+    - phpcpd
+    - phpstan
+phpmd:
+  standard:
+    - phpmd.xml
+phpcs:
+  standard:
+    - PSR2
+    - phpcs.xml
+  reports:
+    cli:
+      - full
+      - info
+    file:
+      info: phpcs-info.txt
+      full: phpcs-full.txt
+
+phpstan:
+  level: max
+  standard: phpstan.neon
+
